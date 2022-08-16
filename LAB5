@@ -1,0 +1,245 @@
+package lab5;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class LAB5 {
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		// System.setProperty("webdriver.chromedriver","C://Users//4161//Desktop//chromedriver/chromedriver.exe");
+
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		// to open specific site
+		driver.get("https://omayo.blogspot.in/");
+
+		Actions action = new Actions(driver);
+
+		driver.findElement(By.xpath("//div[@class='widget-content']//child::textarea")).sendKeys("Amna chanda");
+
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+		// String textArea2 = driver.findElement(By.linkText("The cat was playing in the
+		// garden.")).getText();
+		// System.out.println(textArea2);
+
+		// WebElement clearDescription = driver.findElement(By.linkText("The cat was
+		// playing in the garden."));
+		// clearDescription.clear();
+         //by using send keys method write description
+		driver.findElement(By.xpath("//div[@id='HTML11']//child::div//child::textarea"))
+				.sendKeys("hey my name is amna chanda and i am a self obssessed lady");
+		// System.out.println(description);
+		// driver.findElement(By.linkText("The cat was playing in the
+		// garden.")).clear();
+
+		// clearDescription.sendKeys("i am a hardworking student");
+
+		String innerText = driver.findElement(By.xpath("//table//thead//th[1]")).getText();
+		System.out.print(innerText + "  ");
+
+		String innerText1 = driver.findElement(By.xpath("//table//thead//th[2]")).getText();
+		System.out.print(innerText1 + "  ");
+
+		String innerText2 = driver.findElement(By.xpath("//table//thead//th[3]")).getText();
+		System.out.println(innerText2 + " ");
+
+		String innerText3 = driver.findElement(By.xpath("//table//tbody//tr[1]//td[1]")).getText();
+		System.out.print(innerText3 + " ");
+
+		String innerText4 = driver.findElement(By.xpath("//table//tbody//tr[1]//td[2]")).getText();
+		System.out.print(innerText4 + " ");
+
+		String innerText5 = driver.findElement(By.xpath("//table//tbody//tr[1]//td[3]")).getText();
+		System.out.println(innerText5 + " ");
+
+		String innerText6 = driver.findElement(By.xpath("//table//tbody//tr[2]//td[1]")).getText();
+		System.out.print(innerText6 + " ");
+
+		String innerText7 = driver.findElement(By.xpath("//table//tbody//tr[2]//td[2]")).getText();
+		System.out.print(innerText7 + " ");
+
+		String innerText8 = driver.findElement(By.xpath("//table//tbody//tr[2]//td[3]")).getText();
+		System.out.println(innerText8 + " ");
+
+		String innerText9 = driver.findElement(By.xpath("//table//tbody//tr[3]//td[1]")).getText();
+		System.out.print(innerText9 + " ");
+
+		String innerText10 = driver.findElement(By.xpath("//table//tbody//tr[3]//td[2]")).getText();
+		System.out.print(innerText10 + " ");
+
+		String innerText11 = driver.findElement(By.xpath("//table//tbody//tr[3]//td[3]")).getText();
+		System.out.print(innerText11);
+
+		// waitMethod(1000);
+
+		action.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+		driver.findElement(By.xpath("//form[@name='form1']//child::input[1]")).sendKeys("amnachanda");
+		driver.findElement(By.xpath("//form[@name='form1']//child::input[2]")).sendKeys("abc123");
+		driver.findElement(By.xpath("//button[@value='LogIn']")).click();
+
+		// action.sendKeys(Keys.PAGE_DOWN).build().perform();
+		// action.sendKeys(Keys.PAGE_DOWN).build().perform();
+
+		String windowHandle = driver.getWindowHandle();
+
+		WebElement frame1 = driver.findElement(
+				By.xpath("//iframe[@src='http://book.theautomatedtester.co.uk']//preceding-sibling::iframe"));
+		driver.switchTo().frame(frame1);
+		driver.switchTo().defaultContent();
+
+		 Thread.sleep(3000);
+		WebElement frame2 = driver.findElement(By.xpath("//iframe[@src='http://book.theautomatedtester.co.uk']"));
+		driver.switchTo().frame(frame2);
+		driver.switchTo().defaultContent();
+
+		driver.findElement(By.xpath("//input[@name='userid']")).sendKeys("amnachanda");
+		driver.findElement(By.xpath("//input[@name='pswrd']")).sendKeys("abc124");
+		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		Thread.sleep(5000);
+
+		
+		  Alert alert = driver.switchTo().alert(); 
+		    alert.accept();
+		  
+		  
+		  driver.findElement(By.xpath("//div[@class='widget-content']//child::select//option[3]")).click();
+		 
+		  //driver.findElement(By.linkText("//option[@value='Hyundaix']")).click();
+		  driver.findElement(By.xpath(
+		  "//div[@class='widget-content']//child::select[@class='combobox']//option[4]"
+		  )).click();
+		  //driver.findElement(By.linkText("//option[@value='jkl's]")).click();
+		  
+		  driver.findElement(By.
+		  xpath("//div[@class='widget-content']//child::input[@value='Selenium WebDriver']"
+		  )).clear(); driver.findElement(By.
+		  xpath("//div[@class='widget-content']//child::input[@value='Selenium WebDriver']"
+		  )).sendKeys("Hello World");
+		  
+		  
+		  WebElement clearDescription = driver.findElement(By.xpath(
+		  "//div[@id='HTML11']//child::div//child::textarea")); String innerText0 =
+		  clearDescription.getText(); System.out.println(innerText0);
+		  
+		  clearDescription.clear();
+		  
+		  clearDescription.
+		  sendKeys("hey my name is amna chanda and i am a self obssessed lady");
+		  
+		  
+		 
+		  driver.findElement(By.xpath(
+		  "//div[@class='widget-content']//child::button[@name='samename'][1]")).click(
+		  ); driver.findElement(By.xpath(
+		  "//div[@class='widget-content']//child::button[@name='samename'][2]")).click(
+		  ); driver.findElement(By.xpath(
+		  "//div[@class='widget-content']//child::button[@name='samename'][3]")).click(
+		  );
+		  
+		  
+		  
+		  driver.findElement(By.xpath("//input[@value='ClickAfterTextDissappears']")).
+		  click(); Alert alert1 = driver.switchTo().alert(); alert1.accept();
+		  
+		 //window handling 
+		  driver.findElement(By.linkText("Open a popup window")).click();
+		  Set<String>  handles=  driver.getWindowHandles();
+		  for(String han:handles) {
+			  driver.switchTo().window(han);
+		  }
+		  System.out.println(driver.findElement(By.xpath("//body")).getText());
+		  //driver.switchTo().frame(1); 
+		  driver.switchTo().window(windowHandle);
+		  
+		//  WebElement one = driver.findElement(By.id("main")).getText(); System.out.println(one);
+		 // WebElement one1 = driver.findElement(By.id("sub"));
+		 // //String one1text = one1.getText();
+		  //System.out.println(one1text);
+		  
+		  
+		  WebElement sClick =
+		  driver.findElement(By.xpath("//button[text()='Try it']"));
+		  action.click(sClick).build().perform();
+		  
+		  WebElement dClick =
+		  driver.findElement(By.xpath("//button[text()=' Double click Here   ']"));
+		  action.doubleClick(dClick).build().perform(); Alert alert2=
+		  driver.switchTo().alert(); alert2.accept();
+		 
+		  WebElement Click =
+		  driver.findElement(By.xpath("//button[text()='Check this']"));
+		  action.click(Click).build().perform();
+		  
+		 Thread.sleep(3000);
+		 
+		  WebElement check = driver.findElement(By.xpath("//input[@id='dte']"));
+		  action.click(check).build().perform();
+		  //TO SELECT GENDER
+		  WebElement gender = driver.findElement(By.xpath("//input[@id='radio2']"));
+	      gender.click();
+		 
+	      WebElement clicltogetalert = driver.findElement(By.xpath("//input[@id='alert1']"));
+	      clicltogetalert.click();
+	      Alert alert3 = driver.switchTo().alert(); 
+		    alert3.accept();
+		    WebElement orange = driver.findElement(By.xpath("//input[@id='checkbox1']"));
+		    orange.click();
+		    WebElement blue = driver.findElement(By.xpath("//input[@id='checkbox2']"));
+		    blue.click();
+		    WebElement readthistext = driver.findElement(By.xpath("//input[@id='rotb']"));
+		    readthistext.click();
+		   
+		driver.findElement(By.xpath("//input[@id='prompt']")).click();
+			 Alert alert4  = driver.switchTo().alert(); 
+				alert4.sendKeys("amna");
+				alert4.accept();
+			//Confirmation Alert and then dismissing it.
+			driver.findElement(By.xpath("//input[@id='confirm']")).click();
+			Alert ConfermationAlert=driver.switchTo().alert();
+			Thread.sleep(2000);
+			ConfermationAlert.dismiss();
+			
+			
+			WebElement readme=driver.findElement(By.xpath("//input[@value='ReadThisText']"));
+			String readmeonly=readme.getAttribute("value");
+			System.out.println("Text in Box is:"+readmeonly);
+			driver.findElement(By.xpath("//input[@type='text' and @name=\"textboxn\"]")).sendKeys("By Attribue");
+			driver.findElement(By.xpath("//input[@value='SameIDName']")).click();
+
+			driver.findElement(By.xpath("//input[@type='text' and @class='classone']")).sendKeys("chanda" ,Keys.TAB,"Amna" );
+			driver.findElement(By.xpath("//input[@id='sa']")).click();
+			driver.findElement(By.xpath("//input[@name='vehicle'][3]")).click();
+			
+			driver.findElement(By.xpath("//input[@value='Book']")).click();
+			driver.findElement(By.xpath("//input[@value='Bag']")).click();
+//			Thread.sleep(2000);
+//			driver.findElement(By.xpath("//input[@value='Book']")).click();
+			//for double click
+			WebElement db=driver.findElement(By.xpath("//p[contains(text(),'Double-click')]"));
+			Actions act = new Actions(driver);
+			act.doubleClick(db).build().perform();
+			
+			WebElement flipkart=driver.findElement(By.xpath("//a[contains(text(),'Flipkart')]"));
+			act.moveToElement(flipkart).build().perform();
+			flipkart.click();
+			driver.quit();	
+	}
+
+}
